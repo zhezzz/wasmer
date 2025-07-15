@@ -41,6 +41,7 @@ rkyv.workspace = true
 shared-buffer.workspace = true
 hyper = { workspace = true, features = ["server"], optional = true }
 derive_more.workspace = true
+wasm-encoder.workspace = true
 
 xxhash-rust = { version = "0.8.8", features = ["xxh64"] }
 rusty_pool = { version = "0.7.0", optional = true }
@@ -205,7 +206,8 @@ webc_runner_rt_dproxy = [
 	"tower-http",
 	"journal",
 ]
-
+# the minimal sys implementation
+sys-minimal = ["wasmer/sys", "sys-thread", "tokio/fs"]
 sys = [
 	"webc/mmap",
 	"time",
