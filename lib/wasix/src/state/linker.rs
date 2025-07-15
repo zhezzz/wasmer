@@ -2228,9 +2228,9 @@ impl LinkerState {
                     return Ok(INVALID_MODULE_HANDLE);
                 }
 
-                (Cow::Owned(bytes), Some((full_path, ld_library_path)))
+                (OwnedBuffer::from(bytes), Some((full_path, ld_library_path)))
             }
-            DlModuleSpec::Memory { bytes, .. } => (Cow::Borrowed(bytes), None),
+            DlModuleSpec::Memory { bytes, .. } => (OwnedBuffer::from(bytes), None),
         };
 
         let module_data = HashedModuleData::new_sha256(module_bytes);
