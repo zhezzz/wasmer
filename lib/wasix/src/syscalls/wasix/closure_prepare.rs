@@ -154,7 +154,7 @@ fn build_closure_wasm_bytes(
         "memory",
         MemoryType {
             minimum: 1,
-            maximum: None,
+            maximum: Some(65536),
             shared: true,
             memory64: false,
             page_size_log2: None,
